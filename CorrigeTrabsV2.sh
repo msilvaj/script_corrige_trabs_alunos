@@ -35,7 +35,8 @@ trataDiff(){
 
 comparasaidas(){
 #	md5sum $ARG3 saidaProg.txt > saidaMd5
-	diff $ARG3 saidaProg.txt > saidaDiff.txt
+	diff -Z -B $ARG3 saidaProg.txt > saidaDiff.txt
+	#diff $ARG3 saidaProg.txt > saidaDiff.txt
 	#caso haja diferenças no arquivo, a saida do diff vai ser algo nao nulo
 	if [ -s saidaDiff.txt ]; then 
 		trataDiff "$1"
